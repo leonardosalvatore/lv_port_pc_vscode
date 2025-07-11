@@ -71,6 +71,21 @@ extern void freertos_main(void);
  *   GLOBAL FUNCTIONS
  **********************/
 
+
+ void trimble_demo(void)
+ {
+  lv_obj_t *tabview = lv_tabview_create(lv_screen_active());
+  lv_obj_t *tab1 = lv_tabview_add_tab(tabview, "Trimble demo");
+
+  lv_obj_t *btn = lv_button_create(tab1);
+  lv_obj_center(btn);
+
+  lv_obj_t *label = lv_label_create(btn);
+  lv_label_set_text(label, "Click Me");
+  lv_obj_center(label);
+ }
+
+
 int main(int argc, char **argv)
 {
   (void)argc; /*Unused*/
@@ -90,7 +105,7 @@ int main(int argc, char **argv)
   /* - lv_demo_stress(); */
   /* - lv_example_label_1(); */
   /* - etc. */
-  lv_demo_trimble();
+  trimble_demo();
 
   while(1) {
     /* Periodically call the lv_task handler.
